@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/indiagator/code22-config-server-properties.git
+server:
+  port: 8071
