@@ -12,8 +12,11 @@ spring-cloud-sleuth-zipkin
 webflux
 kafka
 prometheus
+redis
 
 ---
+
+REDIS: Running on port 6379 | RedisInsight installed | Client code in testspringredis
 
 KAFKA: installed in indiagator/kafka
     commands:
