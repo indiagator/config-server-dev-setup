@@ -13,8 +13,11 @@ webflux
 kafka
 prometheus
 redis
+jackson
 
 ---
+
+JACKSON: Dependency and Demo Code with Kafka is in projects: testserviceone and testservicetwo
 
 REDIS: Running on port 6379 | RedisInsight installed | Client code in testspringredis
 
@@ -27,16 +30,14 @@ KAFKA: installed in indiagator/kafka
 
 ZIPKIN: docker run -d -p 9411:9411 openzipkin/zipkin
 
-
-prometheus/grafana integration is in old buyer/seller service projects
+PROMETHEUS/grafana integration is in old buyer/seller service projects
 
  - prometheus.yml file has to be created and docker run with that file and --network host
     run prometheus from the directory where you place prometheus.yml [it's here in the root of this project]
        docker run -d --network host  --name=prometheus -p 9090:9090 -v ./prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 
-grafana - docker run with --network host
+GRAFANA - docker run with --network host
     docker run -d -p 3000:3000 --name=grafana --network host  grafana/grafana-enterprise
-
 
 links:
 https://tanzu.vmware.com/developer/guides/spring-prometheus/
