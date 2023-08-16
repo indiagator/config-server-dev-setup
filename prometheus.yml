@@ -1,16 +1,72 @@
 scrape_configs:
-  - job_name: 'BUYER-SERVICE-INPUT'
-    metrics_path: '/actuator/prometheus'
+  - job_name: 'AUTH-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: '/auth-service/actuator/prometheus'
     scrape_interval: 3s
     static_configs:
-      - targets: ['localhost:8085']
+      - targets: ['localhost:8072']
+        labels:
+          application: 'AUTH-SERVICE'
+
+  - job_name: 'SELLER-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'seller-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Seller-Service-Metrics'
+
+  - job_name: 'BUYER-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'buyer-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
         labels:
           application: 'Buyer-Service-Metrics'
 
-  - job_name: 'SELLER-SERVICE-INPUT'
+  - job_name: 'OFFER-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'offer-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Offer-Service-Metrics'
+
+  - job_name: 'ORDER-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'order-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Order-Service-Metrics'
+
+  - job_name: 'PAYMENT-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'payment-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Payment-Service-Metrics'
+
+  - job_name: 'LOGISTIC-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'logistic-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Logistic-Service-Metrics'
+
+  - job_name: 'ANALYTICS-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'analytics-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Analytics-Service-Metrics'
+
+  - job_name: 'GATEWAY-SERVICE-PROMETHEUS-INPUT'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 3s
     static_configs:
-      - targets: [ 'localhost:8086' ]
+      - targets: [ 'localhost:8072' ]
         labels:
-          application: 'Seller-Service-Metrics'
+          application: 'Gateway-Service-Metrics'
