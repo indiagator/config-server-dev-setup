@@ -1,3 +1,4 @@
+version: '3.4'
 
 services:
 
@@ -46,8 +47,7 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
+      - config-server
 
   gateway-server:
     image: indiagator/gatewayserver:17aug1prod
@@ -60,10 +60,8 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
+      - config-server
+      - eureka-server
 
   auth-service:
     image: indiagator/authservice:17aug1prod
@@ -77,12 +75,9 @@ services:
       mode: replicated
       replicas: 1
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   seller-service:
     image: indiagator/sellerservice:16aug1prod
@@ -96,12 +91,9 @@ services:
       mode: replicated
       replicas: 1
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   buyer-service:
     image: indiagator/buyerservice:17aug1prod
@@ -115,12 +107,9 @@ services:
       mode: replicated
       replicas: 1
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   offer-service:
     image: indiagator/offerservice:17aug1prod
@@ -131,12 +120,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   order-service:
     image: indiagator/orderservice:17aug1prod
@@ -147,12 +133,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   payment-service:
     image: indiagator/paymentservice:17aug1prod
@@ -163,12 +146,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   logistic-service:
     image: indiagator/logisticservice:17aug1prod
@@ -179,12 +159,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   analytic-service:
     image: indiagator/analyticservice:18aug1prod
@@ -195,12 +172,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
   admin-service:
     image: indiagator/adminservice:18aug1prod
@@ -211,12 +185,9 @@ services:
       retries: 3
       start_period: 4s
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      gateway-server:
-        condition: service_started
+      - config-server
+      - eureka-server
+      - gateway-server
 
 
 

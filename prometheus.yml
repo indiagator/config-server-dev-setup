@@ -63,6 +63,14 @@ scrape_configs:
         labels:
           application: 'Analytics-Service-Metrics'
 
+  - job_name: 'ADMIN-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'admin-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Admin-Service-Metrics'
+
   - job_name: 'GATEWAY-SERVICE-PROMETHEUS-INPUT'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 3s

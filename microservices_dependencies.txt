@@ -41,3 +41,16 @@ GRAFANA - docker run with --network host
 
 links:
 https://tanzu.vmware.com/developer/guides/spring-prometheus/
+
+---
+Kuberbetes | minikube
+Start Docker Desktop
+minikube start
+kubectl create deployment admin-service --image=indiagator/adminservice:18aug1prod
+kubectl --port-forward | can be done through intellij
+kubectl scale deployment auth-service --replicas=4
+kubectl set image deployments/admin-service adminservice=indiagator/adminservice:18aug2prod | second argument is container name
+                                                                                                derived from image name
+                                                                                                not the service name
+
+
