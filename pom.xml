@@ -8,11 +8,13 @@
         <version>2.7.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.example</groupId>
     <artifactId>configserver</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>dev-1</version>
     <name>configserver</name>
     <description>configserver</description>
+
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
