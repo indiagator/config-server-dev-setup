@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: configuration
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: configuration
+    spec:
+      containers:
+        - name: config-server
+          image: "indiagator/configserver:sep23dev1"

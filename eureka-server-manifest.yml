@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: servicediscovery
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: servicediscovery
+    spec:
+      containers:
+        - name: eureka-server
+          image: "indiagator/eurekaserver:16aug1prod"

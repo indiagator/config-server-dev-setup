@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-server
+spec:
+  type: NodePort
+  selector:
+    app: cbt
+    department: configuration
+  ports:
+    - protocol: TCP
+      port: 8071
+      targetPort: 8071

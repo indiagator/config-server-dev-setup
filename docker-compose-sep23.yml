@@ -29,7 +29,7 @@ services:
       - redis-data:/data
 
   config-server:
-    build: .
+    build: . # image: indiagator/configserver:sep23dev1
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8071/actuator/health" ]
       interval: 10s
