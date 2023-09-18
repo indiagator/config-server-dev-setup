@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: authservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: authservice
+    spec:
+      containers:
+        - name: auth-service
+          image: "indiagator/configserver:sep23prod3"
