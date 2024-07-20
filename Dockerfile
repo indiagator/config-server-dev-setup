@@ -3,7 +3,7 @@
 FROM adoptopenjdk/maven-openjdk11
 
 #PLACEMENT OF THE EXECUTABLE [MICROSERVICE] ON THE IMAGE
-COPY target/configserver-dev-1.jar app.jar
+COPY target/configserver-dev-2.jar app.jar
 
 #EXPOSE PORTS FOR INCOMING TRAFFIC - HOST_PORT:CONTAINER_PORT
 EXPOSE 8071:8071

@@ -11,7 +11,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>configserver</artifactId>
-    <version>dev-1</version>
+    <version>dev-2</version>
     <name>configserver</name>
     <description>configserver</description>
 
@@ -19,6 +19,7 @@
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
         <dependency>
@@ -28,7 +29,21 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
         <dependency>
@@ -38,6 +53,7 @@
         </dependency>
 
     </dependencies>
+
     <dependencyManagement>
 
         <dependencies>

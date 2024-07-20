@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seller-service
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: sellers
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: sellers
+    spec:
+      containers:
+        - name: auth-service
+          image: "indiagator/sellerservice:sep23prod1"

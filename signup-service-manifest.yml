@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: signup-service
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: signupservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: signupservice
+    spec:
+      containers:
+        - name: signup-service
+          image: "indiagator/signup-service:apr242"

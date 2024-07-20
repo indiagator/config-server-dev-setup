@@ -56,7 +56,7 @@ services:
     image: indiagator/analyticsservice:forkafka7
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8099/actuator/health" ]
       interval: 10s
@@ -72,10 +72,10 @@ services:
         condition: service_started
 
   auth-service:
-    image: indiagator/authservice:0.2
+    image: indiagator/authservice:jan24prod1
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 2
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8095/actuator/health" ]
       interval: 10s
@@ -92,6 +92,7 @@ services:
 
   gateway-server:
     image: indiagator/gatewayserver:swarm1
+    hostname: gateway-server-host
     ports:
       - "8072:8072"
     deploy:
@@ -108,6 +109,10 @@ services:
         condition: service_healthy
       config-server:
         condition: service_healthy
+    networks:
+      default:
+        aliases:
+          - "gateway-server"
 
   zipkin-server:
     image: 'openzipkin/zipkin'

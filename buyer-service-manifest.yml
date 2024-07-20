@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyer-service
+spec:
+  selector:
+    matchLabels:
+      app: cbt
+      department: buyerservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cbt
+        department: buyerservice
+    spec:
+      containers:
+        - name: buyer-service
+          image: "indiagator/buyerservice:sep23prod2"
