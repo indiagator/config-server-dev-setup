@@ -25,23 +25,35 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids = [var.existing_security_group_id]
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "cloud-lone1-test-instance"
   }
 }
 
 resource "aws_db_instance" "postgres_db" {
-  allocated_storage   = 20
-  storage_type        = "gp2"
-  engine              = "postgres"
-  engine_version      = "14.12"
-  instance_class      = "db.t3.micro"
-  username            = "postgres"
-  password            = "postgres"
+  identifier           = "restored-db"
+  allocated_storage    = 20
+  storage_type         = "gp2"
+  engine               = "postgres"
+  engine_version       = "14.12"
+  instance_class       = "db.t3.micro"
+  username             = "postgres"
+  password             = "postgres"
   db_subnet_group_name = aws_db_subnet_group.private_subnets.name
   vpc_security_group_ids = [aws_security_group.allow_postgres.id]
-  skip_final_snapshot = true
-  publicly_accessible = true
+  skip_final_snapshot  = false
+  final_snapshot_identifier = "restored-db-final-snapshot-${replace(timestamp(), ":", "-")}"
+  publicly_accessible  = true
+
+  # Restore from the latest snapshot
+  snapshot_identifier = "restored-db-final-snapshot-2024-08-31t10-37-47z"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
+
+
+
 
 resource "aws_db_subnet_group" "private_subnets" {
   name       = "main_private_subnets"

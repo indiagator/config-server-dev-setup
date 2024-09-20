@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+  annotations:
+    spec.ingressClassName: nginx  # Or your preferred ingress controller
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: lone1.app  # This sets the hostname to lone1.app
+      http:
+        paths:
+          - path: /gateway(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway-server
+                port:
+                  number: 8072
