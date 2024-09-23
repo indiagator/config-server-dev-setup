@@ -9,5 +9,5 @@ spec:
     department: servicediscovery
   ports:
     - protocol: TCP
-      port: 8070
-      targetPort: 8070
+      port: 8761
+      targetPort: 8761

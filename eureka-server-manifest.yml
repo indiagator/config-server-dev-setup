@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: eureka-server
-          image: "indiagator/eurekaserver:16aug1prod"
+          image: "indiagator/eureka-server-boot3-stag:0.2"

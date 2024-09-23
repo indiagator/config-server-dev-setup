@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: config-server
-          image: "indiagator/configserver:sep23dev1"
+          image: "indiagator/config-server-boot3-stag:0.1"

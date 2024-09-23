@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: gateway-server
-          image: "indiagator/gatewayserver:swarm1"
+          image: "indiagator/gateway-server-boot3-stag:0.1"

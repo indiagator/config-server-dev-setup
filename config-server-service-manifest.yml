@@ -9,5 +9,5 @@ spec:
     department: configuration
   ports:
     - protocol: TCP
-      port: 8071
-      targetPort: 8071
+      port: 8888
+      targetPort: 8888
