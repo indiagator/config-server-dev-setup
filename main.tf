@@ -21,7 +21,7 @@ variable "existing_security_group_id" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0c2af51e265bd5e0e"
   instance_type = "t2.micro"
-  key_name = "terratest"
+  key_name = "lone1connect"
   vpc_security_group_ids = [var.existing_security_group_id]
 
   tags = {
